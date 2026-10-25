@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>퇴사하고 싶어요 - 부장님 방어전</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- 시작 화면 -->
+  <section id="screen-start" class="screen active">
+    <div class="start-card">
+      <div class="start-face" id="start-face"></div>
+      <h1>퇴사하고 싶어요</h1>
+      <p class="sub">부장님과의 채팅 3턴.<br>당신이 <b>무슨 말을 하느냐</b>에 따라 결말이 달라집니다.</p>
+      <ul class="rules">
+        <li>버튼을 고르거나 직접 입력하세요.</li>
+        <li>부장님은 3번 막습니다. 감정 공감 → 연봉 역제안 → 죄책감 공격.</li>
+        <li>턴마다 <b>15초</b>. 읽씹하면 부장님이 먼저 끊습니다.</li>
+        <li>엔딩은 <b>5종</b>. 어떤 말이 어떤 결말로 가는지는 비공개.</li>
+      </ul>
+      <button id="btn-start" class="primary">대화 시작</button>
+      <p class="tiny">판정 기준·엔딩 소재는 2025~2026 직장문화 보도 자료 기반 (결과 화면에 출처 표시)</p>
+    </div>
+  </section>
+
+  <!-- 채팅 화면 -->
+  <section id="screen-chat" class="screen">
+    <header class="chat-header">
+      <div class="boss-avatar" id="boss-face-wrap"></div>
+      <div class="boss-meta">
+        <b>김부장</b>
+        <span id="boss-status">온라인</span>
+      </div>
+      <button id="btn-sound" class="icon-btn" title="소리 끄기/켜기">🔊</button>
+    </header>
+
+    <div id="round-bar">
+      <span id="round-label">1 / 3</span>
+      <div class="courage" title="용기 게이지">
+        <div id="courage-fill"></div>
+        <span id="courage-text">용기 0</span>
+      </div>
+      <span id="timer">15</span>
+    </div>
+
+    <div id="chat-log" aria-live="polite"></div>
+
+    <div id="choices"></div>
+
+    <form id="input-form" autocomplete="off">
+      <input id="msg-input" type="text" maxlength="60" placeholder="직접 입력…" aria-label="메시지 입력">
+      <span id="char-count">0</span>
+      <button type="submit" class="primary small">전송</button>
+    </form>
+  </section>
+
+  <!-- 결과 화면 -->
+  <section id="screen-result" class="screen">
+    <div id="confetti"></div>
+    <div class="result-card">
+      <div class="result-face" id="result-face-wrap"></div>
+      <div class="bubble-around left" id="bubble-left"></div>
+      <div class="bubble-around right" id="bubble-right"></div>
+      <span class="ending-tag" id="ending-tag"></span>
+      <h2 id="result-title"></h2>
+      <p id="result-desc"></p>
+
+      <div class="courage-final">
+        <span>최종 용기</span>
+        <div class="courage big"><div id="courage-fill-final"></div></div>
+        <b id="courage-final-text"></b>
+      </div>
+
+      <div id="result-log"></div>
+
+      <div id="result-fact"></div>
+
+      <div class="result-actions">
+        <button id="btn-retry" class="primary">다시하기</button>
+        <button id="btn-share">결과 복사</button>
+      </div>
+      <p class="tiny" id="ending-count"></p>
+    </div>
+  </section>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
